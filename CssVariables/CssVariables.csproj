@@ -246,6 +246,10 @@
     <Reference Include="umbraco.providers, Version=1.0.6879.21988, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.12.4\lib\net45\umbraco.providers.dll</HintPath>
     </Reference>
+    <Reference Include="Umbraco.Web.PublishedContentModels, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Umbraco.Web.PublishedContentModels.dll</HintPath>
+    </Reference>
     <Reference Include="Umbraco.Web.UI, Version=1.0.6879.21993, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.12.4\lib\net45\Umbraco.Web.UI.dll</HintPath>
     </Reference>
@@ -271,19 +275,6 @@
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.controller.js" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.htm" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.resource.js" />
-    <Content Include="assets\css\Article-List.css" />
-    <Content Include="assets\css\Footer-Basic.css" />
-    <Content Include="assets\css\Layout.css" />
-    <Content Include="assets\css\Navigation-Clean1.css" />
-    <Content Include="assets\css\styles.css" />
-    <Content Include="assets\css\variables.css" />
-    <Content Include="assets\img\beach.jpg" />
-    <Content Include="assets\img\building.jpg" />
-    <Content Include="assets\img\desk.jpg" />
-    <Content Include="assets\img\hero-background-nature.jpg" />
-    <Content Include="assets\img\hero-background-photography.jpg" />
-    <Content Include="assets\img\hero-background-technology.jpg" />
-    <Content Include="assets\img\loft.jpg" />
     <Content Include="config\grid.editors.config.js" />
     <Content Include="config\Lang\cs-CZ.user.xml" />
     <Content Include="config\Lang\da-DK.user.xml" />

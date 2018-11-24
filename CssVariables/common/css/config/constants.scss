@@ -1,0 +1,43 @@
+// Widths
+$column: 70;
+$margin: 15;
+$max-width: (1170 + $margin*2);
+
+//1380 wide with 15px margin means $column = 85
+
+// Breakpoints (these area defaults)
+// Change per project
+
+$tiny: 420px;
+$small: 568px;
+$medium: 768px;
+$large: 980px;
+$huge: 1200px;
+$mega: 1400px;
+
+
+// start: To be deleted?
+$base-font-size: 16;
+$max-desktop: 1200px; // this is the same as $max-width, but it includes px unit.
+$small-desktop: 980px;
+$min-desktop: 769px;
+$max-tablet: 768px;
+$min-tablet: 569px;
+$max-mobile: 568px;
+
+$max-mobile-nav: 768px; // you can use this if your mobile nav will look completely different to your desktop nav and you'd like to separate that sass
+
+// end: To be deleted?
+
+// Colours
+
+$white: #FFF;
+
+:root {
+  --accent1: #8282df;
+  // --accent1: #222233;
+  --accent2: #0d0764;
+  --bg-color: #ffffff;
+  --fontsize: #{$base-font-size};
+  font-size: var(--fontsize, $base-font-size + 'px');
+}

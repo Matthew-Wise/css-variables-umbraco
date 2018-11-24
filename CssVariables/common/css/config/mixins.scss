@@ -1,0 +1,131 @@
+/* convert to em from px */
+@function em($px, $base: $base-font-size) {
+  @return ($px / $base) * 1em;
+}
+
+/* convert to rem from px */
+@function calculateRem($px, $base: $base-font-size) {
+  $remSize: $px / $base;
+  @return #{$remSize}rem;
+}
+
+/* unit conversion used by font size */
+@function meta-unit($number, $unit) {
+
+  @if $unit == "px" {
+    @return $number+px;
+  }
+  @if $unit == "%" {
+    @return $number+"%";
+  }
+  @if $unit == "em" {
+    @return em($number)+px;
+  }
+  @if $unit == "rem" {
+    @return calculateRem($number);
+  }
+}
+
+/* media query mixins that use breakpoints set in constants.scss */
+@mixin media($max, $min: "") {
+
+  @if ( $min == "" ) {
+    @media all and (max-width: #{$max} ){
+      @content;
+    }
+  } @else {
+    @media all and (max-width: #{$max} ) and (min-width: #{$min}) {
+      @content;
+    }
+  }
+}
+
+@mixin media-min($min) {
+  @media all and (min-width: #{$min} ){
+    @content;
+  }
+}
+
+@mixin placeholder-styles() {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+
+  &:-moz-placeholder { /* Firefox 18- */
+    @content;
+  }
+
+  &::-moz-placeholder {  /* Firefox 19+ */
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+@mixin font-size($size, $line-height: ($size + 6)) {
+  font-size: $size + px;
+  font-size: meta-unit($size,rem);
+  line-height: meta-unit($line-height,px);
+  line-height: meta-unit($line-height,rem);
+}
+
+@mixin vertical-gradient($start,$end) {
+  background: $end;
+  background: -webkit-linear-gradient($start,$end);
+  background: linear-gradient($start,$end);
+}
+
+@mixin hide-text() {
+  text-indent: 110%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@mixin cf() {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+// Last child no margin-bottom
+@mixin last-child-no-bottom() {
+  > * {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Cancel Transitions
+@mixin cancel-transitions() {
+  -webkit-transition: none !important;
+  -moz-transition:    none !important;
+  -ms-transition:     none !important;
+  -o-transition:      none !important;
+  transition:     none !important;
+}
+
+/* Slightly lighten a color
+ * @access public
+ * @param {Color} $color - color to tint
+ * @param {Number} $percentage - percentage of `$color` in returned color
+ * @return {Color}
+ */
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+/* Slightly darken a color
+ * @access public
+ * @param {Color} $color - color to shade
+ * @param {Number} $percentage - percentage of `$color` in returned color
+ * @return {Color}
+ */
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}

@@ -1,36 +1,32 @@
 ﻿@inherits UmbracoViewPage<IPublishedContent>
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@Model.Name</title>
-    <link rel="stylesheet" href="~/assets/css/Layout.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
-    <link href="~/assets/css/Carousel-Hero.css" rel="stylesheet" />
-    <link href="~/assets/css/Footer-Basic.css" rel="stylesheet" />
-    <link href="~/assets/css/Article-List.css" rel="stylesheet" />
-    <link href="~/assets/css/Navigation-Clean1.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/common/css/style.css" />
+    <script>
+        @{
+            var theme = Model.OfType<ICompTheme>();
+            for (var i = 0; i < theme.Theme.Colors.Count; i++)
+            {
+                @:var accent@(i+1) = '@theme.Theme.Colors[i].Code';
+            }
+            for (var i = 0; i < theme.ContrastTheme.Colors.Count; i++)
+            {
+                @:var cont_accent@(i+1) = '@theme.ContrastTheme.Colors[i].Code';
+            }
+        }
+
+
+    </script>
 </head>
 <body>
+    @Html.Partial("~/Views/Shared/Header.cshtml")
+
     @RenderBody()
-    <div class="footer-basic">
-        <footer>
-            <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
-            <ul class="list-inline">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Terms</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-            </ul>
-            <p class="copyright">Company Name © 2016</p>
-        </footer>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="common/js/main.js"></script>
 </body>
 
 </html>

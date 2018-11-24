@@ -1,0 +1,14 @@
+/*** Site Footer Styles ***/
+
+.site-footer {
+  background-color: var(--bg-color);
+  padding: 30px 0;
+
+  @include media($huge) {
+    padding: 30px 20px;
+  }
+
+  @include media($small) {
+    padding: 20px 15px;
+  }
+}
